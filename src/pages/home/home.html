@@ -1,0 +1,98 @@
+<ion-header>
+  <ion-toolbar color="primary">
+
+    <ion-buttons start>
+      <button ion-button icon-only>
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title>
+      <h2>Goal Tracker</h2>
+    </ion-title>
+
+    <!-- <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons> -->
+
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="bg-colour">
+
+  <ion-card class ="customize-card">
+    <ion-card-header class="card-header">
+      <h1>My Goals</h1>
+    </ion-card-header>
+    <ion-card-content class ="card-content, cardBG2" color="primary" *ngFor="let goal of goals">
+      <ion-list no-lines>
+        <ion-item-sliding>
+          <ion-item color="card">
+            <h1 style="float:left;">{{goal.goalTitle}}</h1>
+              <ion-icon (click)="expandItem(goal)" color="secondary" ios="ios-arrow-dropdown-circle" md="md-arrow-dropdown-circle"
+                        style="float:right; position: relative; font-size:40px; padding:3px;">
+              </ion-icon>
+          </ion-item>
+          <ion-item-options side="right">
+            <button ion-button style="background-color:#FFE0E0;" (click)="deleteGoal(goal.goalTitle)">
+              <ion-icon name="trash" color="secondary"
+                        style="float:right; position: relative; font-size:40px; padding:3px;"></ion-icon>
+            </button>
+          </ion-item-options>
+        </ion-item-sliding>
+        <ion-item class="light">
+            <p>{{goal.goalDesc}}</p>
+        </ion-item>
+        <expandable [expandHeight]="itemExpandHeight" [expanded]="goal.expanded">
+          <ion-item color="light">
+            <ion-label><h1>Milestones</h1></ion-label>
+          </ion-item>
+          <ion-item color="light" style="border-bottom: 2px solid grey;">
+            <ion-grid >
+              <ion-row style="font-size: 15px">
+                <ion-col size="4">
+                  <b>Title</b>
+                </ion-col>
+                <ion-col size="4">
+                  <b>Completed date</b>
+                </ion-col>
+                <ion-col size="4" >
+                  <b style="float:right;">Milestone met</b>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-item>
+          <ion-list>
+            <ion-item color="light" *ngFor="let milestone of goal.mileStone"><ion-label>
+                                                                                <ion-grid >
+                                                                                  <ion-row style="font-size: 15px">
+                                                                                    <ion-col size="4">
+                                                                                      <b>{{milestone.milestoneTitle}}</b>
+                                                                                    </ion-col>
+                                                                                    <ion-col size="4">
+                                                                                      <span style="float: right; "> {{milestone.milestoneDate}}'</span>
+                                                                                    </ion-col>
+                                                                                    <ion-col size="4" >
+                                                                                      <input class="customCheckbox" type="checkbox" style="float:right;">
+                                                                                    </ion-col>
+                                                                                  </ion-row>
+                                                                                </ion-grid>
+                                                                            </ion-label>
+              <ion-item style="color:lightgrey;"> <ion-label>  </ion-label>
+              </ion-item>
+            </ion-item>
+          </ion-list>
+        </expandable>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  <div style="float:left; width:80%;">
+    <h3  style=" margin-right:0; margin-top:10px; color:white; float: right;" *ngIf="noResults" >Enter your first goal! ---></h3>
+  </div>
+  <button ion-button type="button" name="AddGoalButton" (click)="addGoalPage()" color="secondary" style="float:right; margin-right:5%; position:relative;">
+     <ion-icon ios="ios-add" md="md-add"></ion-icon>
+   </button>
+
+</ion-content>

@@ -1,0 +1,101 @@
+// http://ionicframework.com/docs/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+
+
+ion-title{
+ text-align: center;
+}
+
+.bg-colour{
+  background-image: linear-gradient(to bottom right, #707070, #e5e5e5);
+}
+
+.customize-card{
+  float:left;
+  position: relative;
+  box-shadow: 3px 3px 10px grey;
+  border-radius: 4px;
+}
+
+.card-header{
+  text-align: center;
+  background-color: lightgrey;
+
+}
+
+.card-content{
+  margin-top: 5px;
+  font-size: 24px;
+  height: 50%;
+}
+
+.addgoalCard{
+  width: 100%;
+  padding: 10px;
+  margin: 0px;
+  margin-bottom: 10px;
+}
+
+
+.customInput{
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  border-style: solid;
+  border-width: 1.5px;
+  border-color: grey;
+  height: 38px;
+  width: 100%;
+  padding: 10px;
+  font-size: 22px;
+}
+.customInputSmall{
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  border-style: solid;
+  border-width: 1.5px;
+  border-color: grey;
+  height: 38px;
+  width: 75%;
+  padding: 10px;
+  font-size: 22px;
+}
+
+.customTextArea{
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  border-style: solid;
+  border-width: 1.5px;
+  border-color: grey;
+  height: auto;
+  width: 100%;
+  padding: 10px;
+  font-size: 22px;
+}
+
+.datetimeCls{
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  font-size: 18px;
+  margin: 5px;
+  height: auto;
+}
+
+.longBtn{
+  width: 100%;
+  border-radius: 10px;
+}

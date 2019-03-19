@@ -1,0 +1,70 @@
+<!--
+  Generated template for the AddGoalPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-toolbar color="primary">
+
+    <ion-buttons start>
+      <button ion-button icon-only>
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+
+    <ion-title>
+      <h2>Add Goal</h2>
+    </ion-title>
+
+    <!-- <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons> -->
+
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding class="bg-colour" >
+  <ion-card class ="customize-card, addgoalCard">
+      <ion-label color="primary"><h1>Goal Title</h1></ion-label>
+      <input class="customInput" ion-input type="text" [(ngModel)]="goalTitle" placeholder="Save for a car">
+
+      <ion-label color="primary"><h1>Goal Description</h1></ion-label>
+      <textarea class="customTextArea" ion-input type="text" [(ngModel)]="goalDesc" placeholder="My goal is to buy a Ferrari"></textarea>
+
+  </ion-card>
+  <ion-card class ="customize-card, addgoalCard">
+    <ion-card-header>
+      <h1>Add Milestones</h1>
+    </ion-card-header>
+    <ion-label color="primary"><h1>Milestone Title</h1></ion-label>
+    <input class="customInput" ion-input type="text" [(ngModel)]="milestoneTitle">
+    <ion-item>
+      <ion-label color="primary"><h1>Complete by: </h1></ion-label>
+      <ion-datetime class="datetimeCls" color="primary" [(ngModel)]="milestoneDate" min="2019" max="2100"></ion-datetime>
+    </ion-item>
+    <button ion-button type="button" name="button" color="third"  class ="longBtn" (click)="AddMilestone($event, milestoneTitle, milestoneDate)">
+      Add Milestone
+    </button>
+    <ion-list *ngFor="let milestone of milestoneObjs">
+      <ion-item>
+        {{milestone.milestoneTitle}}
+        <span style="float:right;">completed by: {{milestone.milestoneDate}}</span>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+  <div>
+    <button ion-button type="button" name="button" (click)="addGoal($event, goalTitle, goalDesc, goalTimeStart, goalTimeEnd)" color="secondary"  class ="longBtn">
+      Add Goal
+    </button>
+  </div>
+  <div>
+    <button ion-button type="button" name="button" (click)="clearDatabase()" color="primary"  class ="longBtn">
+      Delete Storage
+    </button>
+  </div>
+
+</ion-content>
